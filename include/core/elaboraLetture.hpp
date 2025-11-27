@@ -4,7 +4,7 @@
  * come struct letturaProcessata
  */
 
-#ifdef ELABORA_LETTURE
+#ifndef ELABORA_LETTURE
 #define ELABORA_LETTURE
 
 #include "types.hpp"

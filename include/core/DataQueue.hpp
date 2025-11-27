@@ -27,7 +27,7 @@ class DataQueue {
 
         //elimina l'ultimo elemento se esiste
         //ritorna l'elemento eliminato
-        T tryPop() {
+        std::optional<T> tryPop() {
             std::lock_guard<std::mutex> lock(mtx_);
             if (queue_.empty())
                 return std::nullopt;

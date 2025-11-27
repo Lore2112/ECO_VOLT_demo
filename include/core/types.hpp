@@ -13,7 +13,7 @@
 *   \param: valore, double contenente il campionamento
 */
 struct letturaSensori {
-    std::chrono::steady_clock::time_point timestamp;
+    std::chrono::system_clock::time_point timestamp;
     double valore;
     int idSensore;
 
@@ -30,7 +30,7 @@ struct letturaSensori {
 *   \param: numeroLetture: numero di letture effettuate 
 */
 struct letturaProcessata {
-    std::chrono::steady_clock::time_point timestamp;
+    std::chrono::system_clock::time_point timestamp;
     double media;
     double max;
     double min;
