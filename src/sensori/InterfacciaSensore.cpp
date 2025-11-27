@@ -14,8 +14,10 @@ InterfacciaSensore::~InterfacciaSensore() {
 void InterfacciaSensore::sensorLoop() {
     while(running_) {
         double lettura = readSensor();
-        letturaSensori structLettura(idSensore, lettura);
-        queueOutput.push(structLettura);
+        if(!isnan(lettura)){
+            letturaSensori structLettura(idSensore, lettura);
+            queueOutput.push(structLettura);
+        }
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
