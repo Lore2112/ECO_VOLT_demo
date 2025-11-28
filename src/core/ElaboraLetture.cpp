@@ -1,7 +1,7 @@
 #ifndef ELABORA_LETTURE_C
 #define ELABORA_LETTURE_C
 
-#include "../../include/core/ElaboraLetture.hpp"
+#include "../../include/core/elaboraLetture.hpp"
 #include <algorithm>
 /**
  * \brief: costruttore della classe ElaboraLetture.
