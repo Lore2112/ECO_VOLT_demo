@@ -2,6 +2,7 @@
 #define INTERFACCIA_SENSORE_C
 
 #include "../../include/sensori/InterfacciaSensore.hpp"
+#include <cmath>
 
 /**
  * \brief: costruttore per la classe InterfacciaSensore.
