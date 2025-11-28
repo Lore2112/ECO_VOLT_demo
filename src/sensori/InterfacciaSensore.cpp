@@ -29,7 +29,7 @@ InterfacciaSensore::~InterfacciaSensore() {
 void InterfacciaSensore::sensorLoop() {
     while(running_) {
         double lettura = readSensor();
-        if(!isnan(lettura)){
+        if(!std::isnan(lettura)){
             letturaSensori structLettura(idSensore, lettura);
             queueOutput.push(structLettura);
         }
