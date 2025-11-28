@@ -40,7 +40,7 @@ bool SensoreI2C::initialize() {
     // 2. Send "Start Periodic Measurement" (0x21B1)
     uint8_t start_cmd[2] = {0x21, 0xB1};
     if (write(fdI2c, start_cmd, 2) != 2) {
-        std::cerr << "Failed to send start command during init: " << strerr(errno) << "\n";
+        std::cerr << "Failed to send start command during init: " << stderr(errno) << "\n";
         return false;
     }
 
