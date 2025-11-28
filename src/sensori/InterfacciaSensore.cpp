@@ -30,7 +30,7 @@ void InterfacciaSensore::sensorLoop() {
             letturaSensori structLettura(idSensore, lettura);
             queueOutput.push(structLettura);
         }
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::seconds(5));
     }
 }
 
