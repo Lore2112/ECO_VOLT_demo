@@ -1,9 +1,10 @@
 #ifndef MAIN_CPP
 #define MAIN_CPP
 
-#include "src/core/ElaboraLetture.cpp"
-#include "src/sensori/InterfacciaSensore.cpp"
-#include "src/sensori/SensoreI2C.cpp"
+#include "core/types.hpp"
+#include "core/DataQueue.hpp"
+#include "core/elaboraLetture.hpp"
+#include "sensori/SensoreI2C.hpp"
 #include <csignal>
 #include <iostream>
 
