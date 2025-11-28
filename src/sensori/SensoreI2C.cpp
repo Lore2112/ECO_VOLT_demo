@@ -62,7 +62,7 @@ double SensoreI2C::readSensor() {
         std::cerr << "Failed to send read command\n";
         return NAN;
     }
-	usleep(2000);
+	usleep(500000);
 		
 	uint8_t data[9]; //from datasheet, data is 9 bytes long
 	int n = read(fdI2c, data, 9);
