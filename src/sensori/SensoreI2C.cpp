@@ -30,20 +30,21 @@ bool SensoreI2C::initialize() {
 		std::cerr << "Failed to connect to device. \n";
 		return false;
 	}
+
+    uint8_t start_cmd[2] = {0x21, 0xB1};
+	if (write(fdI2c, start_cmd, 2) != 2) {
+        std::cerr << "Failed to send start command \n";
+        return false;
+    }
+	sleep(5);
     return true;
+
 }
 
 /**
  * Funzione specifica per SCD40, sensore di umidità, temperatura e C02
  */
 double SensoreI2C::readSensor() {
-    uint8_t start_cmd[2] = {0x21, 0xB1};
-	if (write(fdI2c, start_cmd, 2) != 2) {
-        std::cerr << "Failed to send start command \n";
-        return NAN;
-    }
-	
-    sleep(5);
     
     // send "read measurement" command 0xEC05
 	uint8_t read_cmd[2] = {0xEC, 0x05};
@@ -51,7 +52,7 @@ double SensoreI2C::readSensor() {
         std::cerr << "Failed to send read command\n";
         return NAN;
     }
-	usleep(500000); //500ms for data ready
+	usleep(2000);
 		
 	uint8_t data[9]; //from datasheet, data is 9 bytes long
 	int n = read(fdI2c, data, 9);
