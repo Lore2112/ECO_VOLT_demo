@@ -44,10 +44,10 @@ int main()
         auto datiProcessati = outputQueue.tryPop();
         if (datiProcessati)
         {
-            std::cout << "Sensore" << datiProcessati->idSensore << "\n";
-            << "Media" << datiProcessati->media << "\n";
-            << "Max" << datiProcessati->max << "\n";
-            << "Min" << datiProcessati->min << "\n";
+            std::cout << "Sensore" << datiProcessati->idSensore << "\n"
+            << "Media" << datiProcessati->media << "\n"
+            << "Max" << datiProcessati->max << "\n"
+            << "Min" << datiProcessati->min << "\n"
             << "N. letture" << datiProcessati->numeroLetture << "\n";
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
