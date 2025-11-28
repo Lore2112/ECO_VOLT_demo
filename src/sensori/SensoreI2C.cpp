@@ -30,15 +30,25 @@ bool SensoreI2C::initialize() {
 		std::cerr << "Failed to connect to device. \n";
 		return false;
 	}
+    // 1. Send "Stop Periodic Measurement" (0x3F86) first.
+    // This handles the case where the program crashed previously 
+    // and left the sensor running.
+    uint8_t stop_cmd[2] = {0x3F, 0x86};
+    write(fdI2c, stop_cmd, 2); 
+    usleep(500000); // Wait 500ms for it to stop
 
+    // 2. Send "Start Periodic Measurement" (0x21B1)
     uint8_t start_cmd[2] = {0x21, 0xB1};
-	if (write(fdI2c, start_cmd, 2) != 2) {
-        std::cerr << "Failed to send start command \n";
+    if (write(fdI2c, start_cmd, 2) != 2) {
+        std::cerr << "Failed to send start command during init: " << strerror(errno) << "\n";
         return false;
     }
-	sleep(5);
-    return true;
 
+    // 3. Wait for the first measurement to be ready (approx 5 seconds)
+    std::cout << "SCD4x initialized. Warming up (5s)...\n";
+    sleep(5); 
+
+    return true;
 }
 
 /**

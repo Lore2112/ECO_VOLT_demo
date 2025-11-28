@@ -30,7 +30,7 @@ int main()
 
     if (!SCD40.initialize())
     {
-        std::cerr << "Sensori non inizializzti correttamente \n";
+        std::cerr << "Sensori non inizializzati correttamente \n";
         return 1;
     }
     Elaboratore.start();
@@ -48,7 +48,7 @@ int main()
             << "Min" << datiProcessati->min << "\n"
             << "N. letture" << datiProcessati->numeroLetture << "\n";
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::seconds(5));
     }
     std::cout << "Shutdown...";
     SCD40.stop();
