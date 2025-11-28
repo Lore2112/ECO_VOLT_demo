@@ -1,6 +1,3 @@
-#ifndef MAIN_CPP
-#define MAIN_CPP
-
 #include "core/types.hpp"
 #include "core/DataQueue.hpp"
 #include "core/elaboraLetture.hpp"
@@ -59,5 +56,3 @@ int main()
 
     return 0;
 }
-
-#endif

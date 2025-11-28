@@ -1,6 +1,3 @@
-#ifndef INTERFACCIA_SENSORE_C
-#define INTERFACCIA_SENSORE_C
-
 #include "../../include/sensori/InterfacciaSensore.hpp"
 #include <cmath>
 
@@ -54,5 +51,3 @@ void InterfacciaSensore::stop() {
         thread_ -> join();
     }
 }
-
-#endif

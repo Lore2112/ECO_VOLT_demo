@@ -1,6 +1,3 @@
-#ifndef ELABORA_LETTURE_C
-#define ELABORA_LETTURE_C
-
 #include "../../include/core/elaboraLetture.hpp"
 #include <algorithm>
 /**
@@ -123,5 +120,3 @@ void ElaboraLetture::stop()
         thread_->join();
     }
 }
-
-#endif

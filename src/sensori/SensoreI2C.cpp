@@ -1,6 +1,3 @@
-#ifndef SENSORE_I2C_C
-#define SENSORE_I2C_C
-
 #include <iostream>
 #include <unistd.h>
 #include <fcntl.h>
@@ -68,5 +65,3 @@ double SensoreI2C::readSensor() {
 
     return static_cast<double>(co2_raw);
 }
-
-#endif
