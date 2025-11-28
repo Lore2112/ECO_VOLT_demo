@@ -32,7 +32,6 @@ ElaboraLetture::~ElaboraLetture() {
  * \return: letturaProcessata: contenente max, min, media, timestamp, idSensore e numero di letture
  */
 letturaProcessata ElaboraLetture::processaMisure(const std::vector<letturaSensori>& misure) {
-    if (misure.size()) {
         letturaProcessata ret;
         /**
          * maxStruct punta alla struct di tipo letturaSensori che contiene la lettura più alta,
@@ -87,7 +86,7 @@ void ElaboraLetture::elaboraLoop() {
             int sensorId = lettura->idSensore;
             buffers_[sensorId].push_back(*lettura);
 
-            if (buffers_[sensorId].size() == finestra) {
+            if (buffers_[sensorId].size() == static_cast<size_t>(finestra)) {
                 letturaProcessata result = processaMisure(buffers_[sensorId]);
                 queueOutput.push(result);
                 buffers_[sensorId].clear();
