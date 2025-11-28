@@ -25,10 +25,11 @@ class DataQueue {
             }
             cv_.notify_one();
         }
-
-        //elimina l'ultimo elemento se esiste
-        //ritorna l'elemento eliminato
-        std::optional<T> tryPop() {
+        /** 
+         * elimina l'ultimo elemento se esiste
+         * ritorna l'elemento eliminato 
+        */
+       std::optional<T> tryPop() {
             std::lock_guard<std::mutex> lock(mtx_);
             if (queue_.empty())
                 return std::nullopt;

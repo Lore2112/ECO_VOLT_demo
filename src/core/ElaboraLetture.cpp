@@ -4,7 +4,7 @@
 #include "../../include/core/ElaboraLetture.hpp"
 #include <algorithm>
 /**
- * \brief: costruttore della classe ElaboraLetture
+ * \brief: costruttore della classe ElaboraLetture.
  * 
  * \param: DataQueue<letturaSensori>& queueInput: queue di input da processare
  * \param: DataQueue<letturaProcessata>& queueOutput: queue di output per dati processati
@@ -78,7 +78,7 @@ letturaProcessata ElaboraLetture::processaMisure(const std::vector<letturaSensor
 
 /**
  * \brief: funzione di loop che costruisce i buffer per ogni sensore, e quando raggiungono "finestra"
- *         elementi vengono processati e scritti sulla queue di output
+ *         elementi vengono processati e scritti sulla queue di output.
  */
 void ElaboraLetture::elaboraLoop() {
     while (running_) {
@@ -98,7 +98,7 @@ void ElaboraLetture::elaboraLoop() {
 }
 
 /**
- * \brief: funzione che crea il thread 
+ * \brief: funzione che crea il thread che esegue la funzione elaboraLoop.
  */
 void ElaboraLetture::start() {
     running_ = true;
@@ -106,7 +106,7 @@ void ElaboraLetture::start() {
 }
 
 /**
- * \brief: funzione che joina il thread in modo sicuro
+ * \brief: funzione che ferma il thread in modo sicuro.
  */
 void ElaboraLetture::stop() {
     running_ = false;

@@ -22,8 +22,13 @@ class InterfacciaSensore {
          * puntatore unico per il thread
          */
         std::unique_ptr<std::thread> thread_;
-
+        /**
+         * funzione che prende un campionamento da un sensore
+         */
         virtual double readSensor() = 0;
+        /**
+         * funzione che chiama readsensor() in un loop
+         */
         void sensorLoop();
     public:
         InterfacciaSensore(int idSensore, DataQueue<letturaSensori>& queue, std::atomic<bool>& running);

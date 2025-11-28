@@ -1,5 +1,9 @@
-#ifndef SENSORE_I2C
-#define SENSORE_I2C
+/**
+ * Classe figlia di "InterfacciaSensore" per sensori che comunicano in I2C
+ */
+
+#ifndef SENSORE_I2C_H
+#define SENSORE_I2C_H
 
 #include "InterfacciaSensore.hpp"
 
